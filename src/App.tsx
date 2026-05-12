@@ -25,7 +25,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }); }, [pathname]);
+  useEffect(() => {
+    // Plain window.scrollTo(0,0) — guaranteed instant on every browser,
+    // no fight with scroll-behavior or framer-motion exit animations.
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 

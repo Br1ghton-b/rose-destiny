@@ -4,7 +4,9 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* No scroll-behavior: smooth — it makes every wheel tick / key press
+       animate slowly, which most users perceive as the page refusing to scroll.
+       We only smooth-scroll on anchor jumps via the .smooth-anchor utility. */
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -13,9 +15,14 @@
     color: #0A0A0A;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* clip (not hidden) so the html element is not turned into a
-       scroll container — keeps position:sticky working on the Navbar,
-       Account sidebar, Cart/Checkout summary, and Shop filter bar. */
+    /* Do NOT set overflow on body or html — that turns them into
+       scroll containers and breaks position: sticky on the Navbar and
+       interferes with native scrolling on iOS Safari. Horizontal
+       overflow protection is delegated to #root below. */
+  }
+  /* The Vite mount node — clipping here prevents any rogue child from
+     causing horizontal scroll, without touching body/html scroll. */
+  #root {
     overflow-x: clip;
   }
   h1, h2, h3, h4, h5 {
@@ -36,6 +43,17 @@
     input, select, textarea { font-size: inherit; }
   }
   ::selection { background: #C9A24C; color: #0A0A0A; }
+
+  /* Respect users who have asked the OS to reduce motion — pauses
+     infinite animations like the home marquee so they don't drag
+     scroll performance on mobile / battery devices. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
 }
 
 @layer components {
