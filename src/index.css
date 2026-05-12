@@ -5,7 +5,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -14,8 +13,10 @@
     color: #0A0A0A;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-    overscroll-behavior-y: none;
+    /* clip (not hidden) so the html element is not turned into a
+       scroll container — keeps position:sticky working on the Navbar,
+       Account sidebar, Cart/Checkout summary, and Shop filter bar. */
+    overflow-x: clip;
   }
   h1, h2, h3, h4, h5 {
     font-family: 'Cormorant Garamond', Georgia, serif;
