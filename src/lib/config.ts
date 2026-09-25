@@ -1,0 +1,20 @@
+export const BRAND = {
+  name: 'Rose Destiny',
+  tagline: 'Clean Spaces, Healthier Lives',
+  email: 'info@rosedestiny.co.za',
+  phone: '+27 73 947 5143',
+  whatsappNumber: '27739475143',
+  address: 'Johannesburg & surrounding areas, South Africa',
+  hours: 'Mon – Sat · 08:00 – 18:00',
+  social: {
+    instagram: 'https://instagram.com/rosedestiny',
+    facebook: 'https://facebook.com/rosedestiny',
+    pinterest: 'https://pinterest.com/rosedestiny',
+    tiktok: 'https://tiktok.com/@rosedestiny',
+  },
+  currency: 'ZAR',
+  currencySymbol: 'R',
+  vatRate: 0.15,
+  deliveryFlatFee: 120,
+  freeDeliveryThreshold: 1500,
+} as const;

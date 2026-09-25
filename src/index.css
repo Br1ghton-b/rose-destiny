@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* No scroll-behavior: smooth — it makes every wheel tick / key press
+       animate slowly, which most users perceive as the page refusing to scroll.
+       We only smooth-scroll on anchor jumps via the .smooth-anchor utility. */
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #082c72;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Do NOT set overflow on body or html — that turns them into
+       scroll containers and breaks position: sticky on the Navbar and
+       interferes with native scrolling on iOS Safari. Horizontal
+       overflow protection is delegated to #root below. */
+  }
+  /* The Vite mount node — clipping here prevents any rogue child from
+     causing horizontal scroll, without touching body/html scroll. */
+  #root {
+    overflow-x: clip;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  /* Larger comfortable touch targets on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    button, a { -webkit-tap-highlight-color: rgba(201, 162, 76, 0.18); }
+  }
+  /* Prevent iOS zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  @media (min-width: 640px) {
+    input, select, textarea { font-size: inherit; }
+  }
+  ::selection { background: #ed168c; color: #ffffff; }
+
+  /* Respect users who have asked the OS to reduce motion — pauses
+     infinite animations like the home marquee so they don't drag
+     scroll performance on mobile / battery devices. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12; }
+
+  .btn-pink { @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#ed168c] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(237,22,140,0.22)] transition hover:-translate-y-0.5 hover:bg-[#d90c7b] hover:shadow-[0_16px_30px_rgba(237,22,140,0.3)]; }
+  .btn-blue-outline { @apply inline-flex items-center justify-center rounded-full border-2 border-[#082c72] px-6 py-3 text-sm font-bold text-[#082c72] transition hover:bg-[#082c72] hover:text-white; }
+  .section-kicker { @apply text-xs font-bold uppercase tracking-[0.24em] text-[#ed168c]; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.32em] text-gold-500;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 bg-gold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm uppercase tracking-[0.22em] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-ivory hover:bg-gold hover:text-ink border border-ink hover:border-gold;
+  }
+  .btn-gold {
+    @apply btn bg-gold-gradient text-ink border border-gold hover:brightness-110 shadow-[0_10px_30px_-10px_rgba(201,162,76,0.6)];
+  }
+  .btn-outline {
+    @apply btn bg-transparent text-ink border border-ink/70 hover:bg-ink hover:text-ivory;
+  }
+  .btn-ghost {
+    @apply btn text-ink hover:text-gold-500;
+  }
+
+  .card {
+    @apply relative overflow-hidden bg-ivory-50 border border-ink/5;
+  }
+
+  .hairline { @apply h-px w-full bg-gradient-to-r from-transparent via-gold/60 to-transparent; }
+
+  .gold-text {
+    background: linear-gradient(90deg,#C9A24C 0%,#F5E9C3 50%,#C9A24C 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 5s linear infinite;
+  }
+
+  .input {
+    @apply w-full bg-transparent border-b border-ink/20 px-0 py-3 text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:border-gold transition-colors;
+  }
+  .label {
+    @apply block text-[11px] uppercase tracking-[0.28em] text-ink/60 mb-1;
+  }
+
+  .price-tag {
+    @apply font-display text-lg text-ink;
+  }
+
+  /* Decorative serif divider */
+  .ornament {
+    @apply flex items-center justify-center gap-3 text-gold;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    @apply h-px w-12 bg-gold/50;
+  }
+}
+
+@layer utilities {
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
+            mask-image: linear-gradient(to bottom, black 70%, transparent);
+  }
+  .text-balance { text-wrap: balance; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #FAF7F0; }
+::-webkit-scrollbar-thumb { background: #C9A24C; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #A98538; }
