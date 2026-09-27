@@ -4,81 +4,69 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: {
-          DEFAULT: '#0A0A0A',
-          900: '#0A0A0A',
-          800: '#141414',
-          700: '#1C1C1C',
-          600: '#262626',
+        // Soft brand palette — deliberately lighter than the logo's deep
+        // navy and cerise, per the brief ("soft, not too deep").
+        navy: {
+          50: '#F3F6FC',
+          100: '#E6ECF7',
+          200: '#CCD8EF',
+          300: '#A3B7DE',
+          400: '#7390C7',
+          500: '#5373B3',
+          600: '#415E9C',
+          700: '#354D84',
+          800: '#2D406B',
+          900: '#233254',
         },
-        ivory: {
-          DEFAULT: '#FAF7F0',
-          50: '#FDFBF6',
-          100: '#FAF7F0',
-          200: '#F3EEE2',
-          300: '#E8E0CC',
+        rose: {
+          50: '#FDF4F8',
+          100: '#FBE8F1',
+          200: '#F6CDE0',
+          300: '#EFA8C8',
+          400: '#E580AF',
+          500: '#D95F98',
+          600: '#C44A84',
+          700: '#A33A6C',
         },
-        gold: {
-          DEFAULT: '#C9A24C',
-          50: '#FBF6E8',
-          100: '#F5E9C3',
-          200: '#EAD18C',
-          300: '#DCBA63',
-          400: '#C9A24C',
-          500: '#A98538',
-          600: '#86692A',
-          700: '#5E4A1E',
+        pearl: {
+          DEFAULT: '#FCFAF9',
+          100: '#F8F4F3',
+          200: '#F1EBEA',
         },
-        rouge: {
-          DEFAULT: '#8E1B2A',
-          50: '#FBEDEF',
-          100: '#F4D1D5',
-          200: '#E69BA3',
-          300: '#D26370',
-          400: '#B23A4A',
-          500: '#8E1B2A',
-          600: '#6E1320',
-          700: '#4D0D17',
-        },
+        // Legacy tokens kept for the unused florist files still in the repo.
+        ink: { DEFAULT: '#0A0A0A' },
+        ivory: { DEFAULT: '#FAF7F0', 50: '#FDFBF6' },
+        gold: { DEFAULT: '#C9A24C', 500: '#A98538' },
+        rouge: { DEFAULT: '#8E1B2A' },
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
-        script: ['"Pinyon Script"', 'cursive'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        script: ['Allura', '"Pinyon Script"', 'cursive'],
       },
-      letterSpacing: {
-        'widest-2': '0.32em',
+      boxShadow: {
+        soft: '0 20px 50px -24px rgba(45, 64, 107, 0.22)',
+        lift: '0 30px 70px -30px rgba(45, 64, 107, 0.35)',
+        rose: '0 16px 36px -14px rgba(217, 95, 152, 0.55)',
       },
       animation: {
-        'fade-up': 'fadeUp 0.8s ease-out forwards',
-        'shimmer': 'shimmer 2.5s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'marquee': 'marquee 40s linear infinite',
-        'marquee-slow': 'marquee 60s linear infinite',
+        marquee: 'marquee 45s linear infinite',
+        float: 'float 7s ease-in-out infinite',
+        twinkle: 'twinkle 3.5s ease-in-out infinite',
       },
       keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
-        marquee: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
+        twinkle: {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.45', transform: 'scale(0.8)' },
         },
-      },
-      backgroundImage: {
-        'gold-gradient': 'linear-gradient(135deg, #DCBA63 0%, #C9A24C 50%, #86692A 100%)',
-        'gold-shimmer': 'linear-gradient(90deg, #C9A24C 0%, #F5E9C3 50%, #C9A24C 100%)',
-        'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E\")",
       },
     },
   },

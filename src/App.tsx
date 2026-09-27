@@ -1,30 +1,38 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import Home from './pages/Home';
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    // Plain window.scrollTo(0,0) — guaranteed instant on every browser,
-    // no fight with scroll-behavior or framer-motion exit animations.
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
+import Hero from './sections/Hero';
+import About from './sections/About';
+import Services from './sections/Services';
+import WhyUs from './sections/WhyUs';
+import Process from './sections/Process';
+import Partners from './sections/Partners';
+import Reviews from './sections/Reviews';
+import Contact from './sections/Contact';
 
 export default function App() {
+  // Sections render after the browser tries to honour a #hash, so jump to it once mounted.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView());
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col bg-ivory">
-      <ScrollToTop />
+    <>
       <Navbar />
-      <main className="flex-1">
-        <Home />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <WhyUs />
+        <Process />
+        <Partners />
+        <Reviews />
+        <Contact />
       </main>
       <Footer />
       <WhatsAppFloat />
-    </div>
+    </>
   );
 }

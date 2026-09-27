@@ -1,18 +1,99 @@
-import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { ArrowUp, Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { BRAND } from '../lib/config';
+import { SECTIONS, SERVICE_CATEGORIES } from '../lib/content';
+import { onAnchorClick } from '../lib/scroll';
 import { whatsappEnquiryLink } from '../lib/whatsapp';
+
+const socials = [
+  { icon: Facebook, label: 'Facebook', href: BRAND.social.facebook },
+  { icon: Instagram, label: 'Instagram', href: BRAND.social.instagram },
+  { icon: MessageCircle, label: 'WhatsApp', href: whatsappEnquiryLink('Hello Rose Destiny, I would like to enquire about your cleaning services.') },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#082c72] pb-8 pt-16 text-white">
-      <div className="container-x">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5"><img src="/rose-destiny-logo.svg" alt="Rose Destiny Cleaning Services" className="w-32 rounded bg-white p-2" /><p className="mt-6 max-w-md leading-7 text-white/70">Professional, reliable and affordable cleaning services for homes, businesses and commercial spaces across Johannesburg and surrounding areas.</p><div className="mt-7 flex gap-3"><a href={BRAND.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition hover:border-[#ed168c] hover:bg-[#ed168c]"><Instagram className="h-4 w-4" /></a><a href={BRAND.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition hover:border-[#ed168c] hover:bg-[#ed168c]"><Facebook className="h-4 w-4" /></a><a href={whatsappEnquiryLink('Hello Rose Destiny, I would like to enquire about your cleaning services.')} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition hover:border-[#ed168c] hover:bg-[#ed168c]"><MessageCircle className="h-4 w-4" /></a></div></div>
-          <div className="md:col-span-3"><h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#ff66bd]">Quick links</h3><ul className="mt-5 space-y-3 text-sm text-white/75"><li><Link to="/" className="hover:text-white">Home</Link></li><li><Link to="/about" className="hover:text-white">About us</Link></li><li><Link to="/contact" className="hover:text-white">Our services</Link></li><li><Link to="/contact" className="hover:text-white">Contact</Link></li></ul></div>
-          <div className="md:col-span-4"><h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#ff66bd]">Get in touch</h3><ul className="mt-5 space-y-4 text-sm text-white/75"><li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#ff66bd]" />{BRAND.address}</li><li><a href={`tel:${BRAND.phone}`} className="flex items-center gap-3 hover:text-white"><Phone className="h-4 w-4 text-[#ff66bd]" />{BRAND.phone}</a></li><li><a href={`mailto:${BRAND.email}`} className="flex items-center gap-3 hover:text-white"><Mail className="h-4 w-4 text-[#ff66bd]" />{BRAND.email}</a></li></ul></div>
+    <footer className="relative border-t border-navy-100 bg-white">
+      <div aria-hidden className="h-1 bg-gradient-to-r from-navy-300 via-rose-300 to-navy-300" />
+      <div className="container-x grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-12 lg:py-16">
+        <div className="lg:col-span-4">
+          <img src="/images/logo.png" alt={BRAND.fullName} className="h-28 w-auto" />
+          <p className="mt-6 max-w-sm text-[15px] leading-7 text-navy-600/80">
+            Reliable, thorough and consistent cleaning solutions for businesses, organisations and homes across Johannesburg.
+          </p>
+          <p className="mt-4 font-script text-3xl text-rose-500">Clean Spaces · Healthier Lives</p>
+          <div className="mt-6 flex gap-2.5">
+            {socials.map(({ icon: Icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-100 text-navy-600 transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-500"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="mt-14 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/45 sm:flex-row"><span>© {new Date().getFullYear()} Rose Destiny Cleaning Services. All rights reserved.</span><span>Clean spaces · Healthier lives</span></div>
+
+        <div className="lg:col-span-2">
+          <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-500">Explore</h3>
+          <ul className="mt-5 space-y-2.5 text-[15px]">
+            {SECTIONS.map((s) => (
+              <li key={s.id}>
+                <a href={`#${s.id}`} onClick={onAnchorClick} className="text-navy-600 transition hover:text-rose-500">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
+          <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-500">Services</h3>
+          <ul className="mt-5 space-y-2.5 text-[15px]">
+            {SERVICE_CATEGORIES.map((s) => (
+              <li key={s.title}>
+                <a href="#services" onClick={onAnchorClick} className="text-navy-600 transition hover:text-rose-500">
+                  {s.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
+          <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-500">Get in Touch</h3>
+          <ul className="mt-5 space-y-4 text-[15px] text-navy-600">
+            <li>
+              <a href={`tel:${BRAND.phone}`} className="flex items-center gap-3 transition hover:text-rose-500">
+                <Phone className="h-4 w-4 text-rose-400" /> {BRAND.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${BRAND.email}`} className="flex items-center gap-3 transition hover:text-rose-500">
+                <Mail className="h-4 w-4 shrink-0 text-rose-400" /> <span className="min-w-0 break-all">{BRAND.email}</span>
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <MapPin className="h-4 w-4 shrink-0 text-rose-400" /> {BRAND.address}
+            </li>
+          </ul>
+          <a href="#contact" onClick={onAnchorClick} className="btn-rose mt-7 !px-6 !py-3">
+            Free Site Assessment
+          </a>
+        </div>
+      </div>
+
+      <div className="border-t border-navy-100 bg-pearl">
+        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-navy-400 sm:flex-row">
+          <span>© {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.</span>
+          <span className="tracking-[0.2em] uppercase">Professional · Reliable · Thorough</span>
+          <a href="#home" onClick={onAnchorClick} className="inline-flex items-center gap-1.5 transition hover:text-rose-500">
+            Back to top <ArrowUp className="h-3.5 w-3.5" />
+          </a>
+        </div>
       </div>
     </footer>
   );
