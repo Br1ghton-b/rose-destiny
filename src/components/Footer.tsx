@@ -14,8 +14,9 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-navy-100 bg-white">
       <div aria-hidden className="h-1 bg-gradient-to-r from-navy-300 via-rose-300 to-navy-300" />
-      <div className="container-x grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-12 lg:py-16">
-        <div className="lg:col-span-4">
+      {/* On phones Explore and Services share a row; the brand and contact blocks span both columns. */}
+      <div className="container-x grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-x-6 gap-y-10 py-12 md:grid-cols-2 md:gap-10 lg:grid-cols-12 lg:py-16">
+        <div className="col-span-2 md:col-span-1 lg:col-span-4">
           <img src="/images/logo.png" alt={BRAND.fullName} className="h-28 w-auto" />
           <p className="mt-6 max-w-sm text-[15px] leading-7 text-navy-600/80">
             Reliable, thorough and consistent cleaning solutions for businesses, organisations and homes across Johannesburg.
@@ -63,7 +64,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="lg:col-span-3">
+        <div className="col-span-2 md:col-span-1 lg:col-span-3">
           <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-500">Get in Touch</h3>
           <ul className="mt-5 space-y-4 text-[15px] text-navy-600">
             <li>
