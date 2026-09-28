@@ -11,12 +11,5 @@ export const BRAND = {
   social: {
     instagram: 'https://www.instagram.com/rose_destinycleaningservices/',
     facebook: 'https://www.facebook.com/Rosedestiny1cleaningservices',
-    pinterest: 'https://pinterest.com/rosedestiny',
-    tiktok: 'https://tiktok.com/@rosedestiny',
   },
-  currency: 'ZAR',
-  currencySymbol: 'R',
-  vatRate: 0.15,
-  deliveryFlatFee: 120,
-  freeDeliveryThreshold: 1500,
 } as const;
