@@ -94,8 +94,10 @@ export default function Navbar() {
         <div className={`container-x flex items-center justify-between gap-6 transition-all duration-500 ${scrolled ? 'h-[76px]' : 'h-[100px]'}`}>
           <a href="#home" onClick={go} className="shrink-0" aria-label={`${BRAND.fullName} — back to top`}>
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt={BRAND.fullName}
+              width={480}
+              height={347}
               className={`w-auto transition-all duration-500 ${scrolled ? 'h-14' : 'h-[84px]'}`}
             />
           </a>

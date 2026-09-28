@@ -17,7 +17,9 @@ export default function About() {
             <div aria-hidden className="absolute -bottom-8 -right-4 h-56 w-56 rounded-full bg-navy-50" />
             <div className="relative overflow-hidden rounded-[2.5rem] shadow-lift">
               <img
-                src="/images/about-kitchen.jpg"
+                src="/images/about-kitchen.webp"
+                width={1400}
+                height={933}
                 alt="A smiling woman wiping down a modern kitchen stove"
                 loading="lazy"
                 className="aspect-[4/5] w-full object-cover object-[72%_center]"

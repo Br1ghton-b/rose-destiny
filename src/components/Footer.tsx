@@ -17,7 +17,7 @@ export default function Footer() {
       {/* On phones Explore and Services share a row; the brand and contact blocks span both columns. */}
       <div className="container-x grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-x-6 gap-y-10 py-12 md:grid-cols-2 md:gap-10 lg:grid-cols-12 lg:py-16">
         <div className="col-span-2 md:col-span-1 lg:col-span-4">
-          <img src="/images/logo.png" alt={BRAND.fullName} className="h-28 w-auto" />
+          <img src="/images/logo.webp" alt={BRAND.fullName} width={480} height={347} loading="lazy" className="h-28 w-auto" />
           <p className="mt-6 max-w-sm text-[15px] leading-7 text-navy-600/80">
             Reliable, thorough and consistent cleaning solutions for businesses, organisations and homes across Johannesburg.
           </p>
