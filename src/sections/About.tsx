@@ -24,10 +24,6 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-900/30 via-transparent to-transparent" />
             </div>
-            <div className="absolute -right-3 -top-6 w-40 rounded-3xl border border-white bg-white/95 p-4 shadow-soft backdrop-blur sm:-right-8 sm:w-48">
-              <img src="/images/logo.png" alt="" className="w-full" />
-              <p className="mt-2 text-center font-script text-2xl leading-tight text-rose-500">Brighter Lives.</p>
-            </div>
             <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-2xl bg-navy-700 px-5 py-4 text-white shadow-lift sm:left-10">
               <Sparkle className="h-5 w-5 text-rose-300" />
               <div>

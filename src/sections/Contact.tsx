@@ -120,7 +120,7 @@ export default function Contact() {
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-navy-400">{label}</span>
-                      <span className="block break-all font-medium text-navy-800 sm:break-normal">{value}</span>
+                      <span className="block break-words font-medium text-navy-800">{value}</span>
                     </span>
                   </>
                 );
