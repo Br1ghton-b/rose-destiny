@@ -6,13 +6,9 @@ const prefersReducedMotion = () =>
 export function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
-  // scroll-margin-top matches the compact header. If the header is still tall, it
-  // shrinks once we scroll and pulls the page up, so aim that much higher.
-  const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
-  const header = document.querySelector('header');
-  const shrink = header ? Math.max(0, header.offsetHeight - margin) : 0;
-  const top = id === 'home' ? 0 : el.getBoundingClientRect().top + window.scrollY - margin - shrink;
-  window.scrollTo({ top: Math.max(0, top), behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  const behavior = prefersReducedMotion() ? 'auto' : 'smooth';
+  if (id === 'home') window.scrollTo({ top: 0, behavior });
+  else el.scrollIntoView({ behavior, block: 'start' });
   history.replaceState(null, '', id === 'home' ? window.location.pathname : `#${id}`);
 }
 

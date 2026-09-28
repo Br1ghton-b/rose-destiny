@@ -8,7 +8,8 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-pearl">
+    // Runs up behind the (transparent at the top) 100px header so the glows aren't cut off at its edge.
+    <section id="home" className="relative -mt-[100px] overflow-hidden bg-pearl pt-[100px]">
       {/* Soft ambient glows */}
       <div aria-hidden className="pointer-events-none absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-navy-100/70 blur-3xl" />
       <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-[32rem] w-[32rem] rounded-full bg-rose-100 blur-3xl" />

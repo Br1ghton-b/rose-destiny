@@ -85,8 +85,10 @@ export default function Navbar() {
       </div>
 
       <header
+        // The compact bar is 24px shorter; mb-6 keeps the header's space in the page
+        // the same, so shrinking doesn't pull the page up and flip `scrolled` back.
         className={`sticky top-0 z-40 transition-all duration-500 ${
-          scrolled ? 'bg-white/85 shadow-[0_10px_40px_-20px_rgba(45,64,107,0.35)] backdrop-blur-xl' : 'bg-pearl/70 backdrop-blur'
+          scrolled ? 'mb-6 bg-white/85 shadow-[0_10px_40px_-20px_rgba(45,64,107,0.35)] backdrop-blur-xl' : open ? 'bg-white' : 'bg-transparent'
         }`}
       >
         <div className={`container-x flex items-center justify-between gap-6 transition-all duration-500 ${scrolled ? 'h-[76px]' : 'h-[100px]'}`}>
