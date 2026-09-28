@@ -86,7 +86,9 @@ export default function Hero() {
           <div aria-hidden className="absolute -right-4 -top-4 bottom-4 left-4 rounded-t-full border border-rose-300/70 sm:-right-6 sm:-top-6 sm:bottom-6 sm:left-6" />
           <div className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[2rem] bg-navy-50 shadow-lift">
             <img
-              src="/images/hero.jpg"
+              src="/images/hero.webp"
+              width={1100}
+              height={1375}
               alt="A smiling cleaner pulling on gloves in a bright, airy bedroom"
               className="h-full w-full object-cover object-center"
             />

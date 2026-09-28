@@ -17,16 +17,14 @@ export default function About() {
             <div aria-hidden className="absolute -bottom-8 -right-4 h-56 w-56 rounded-full bg-navy-50" />
             <div className="relative overflow-hidden rounded-[2.5rem] shadow-lift">
               <img
-                src="/images/about-kitchen.jpg"
+                src="/images/about-kitchen.webp"
+                width={1400}
+                height={933}
                 alt="A smiling woman wiping down a modern kitchen stove"
                 loading="lazy"
                 className="aspect-[4/5] w-full object-cover object-[72%_center]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-900/30 via-transparent to-transparent" />
-            </div>
-            <div className="absolute -right-3 -top-6 w-40 rounded-3xl border border-white bg-white/95 p-4 shadow-soft backdrop-blur sm:-right-8 sm:w-48">
-              <img src="/images/logo.png" alt="" className="w-full" />
-              <p className="mt-2 text-center font-script text-2xl leading-tight text-rose-500">Brighter Lives.</p>
             </div>
             <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-2xl bg-navy-700 px-5 py-4 text-white shadow-lift sm:left-10">
               <Sparkle className="h-5 w-5 text-rose-300" />

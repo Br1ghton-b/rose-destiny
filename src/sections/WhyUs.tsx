@@ -17,7 +17,7 @@ export default function WhyUs() {
           <Reveal delay={0.1}>
             <div className="relative mt-10">
               <div className="overflow-hidden rounded-[2rem] ring-1 ring-white/20">
-                <img src="/images/why-marble.jpg" alt="A cleaner in protective gloves wiping down a marble table" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                <img src="/images/why-marble.webp" width={1400} height={933} alt="A cleaner in protective gloves wiping down a marble table" loading="lazy" className="aspect-[4/3] w-full object-cover" />
               </div>
               <div className="absolute -bottom-7 right-4 rotate-[-4deg] rounded-2xl bg-white px-6 py-3 shadow-lift sm:right-8">
                 <p className="font-script text-3xl leading-tight text-navy-700 sm:text-4xl">
