@@ -4,6 +4,7 @@ import { ArrowRight, Facebook, Instagram, Mail, MapPin, Menu, Phone, X } from 'l
 import { BRAND } from '../lib/config';
 import { SECTIONS } from '../lib/content';
 import { onAnchorClick, scrollToSection, useActiveSection } from '../lib/scroll';
+import { TikTok } from './ui';
 
 const ids = SECTIONS.map((s) => s.id);
 
@@ -79,6 +80,9 @@ export default function Navbar() {
             </a>
             <a href={BRAND.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="transition hover:text-rose-200">
               <Instagram className="h-3.5 w-3.5" />
+            </a>
+            <a href={BRAND.social.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok" className="transition hover:text-rose-200">
+              <TikTok className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>

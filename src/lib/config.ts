@@ -11,5 +11,6 @@ export const BRAND = {
   social: {
     instagram: 'https://www.instagram.com/rose_destinycleaningservices/',
     facebook: 'https://www.facebook.com/Rosedestiny1cleaningservices',
+    tiktok: 'https://www.tiktok.com/@rosedestinycleaning_ser3',
   },
 } as const;
