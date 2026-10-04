@@ -1,5 +1,6 @@
 import { ArrowUp, Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { BRAND } from '../lib/config';
+import { TikTok } from './ui';
 import { SECTIONS, SERVICE_CATEGORIES } from '../lib/content';
 import { onAnchorClick } from '../lib/scroll';
 import { whatsappEnquiryLink } from '../lib/whatsapp';
@@ -7,6 +8,7 @@ import { whatsappEnquiryLink } from '../lib/whatsapp';
 const socials = [
   { icon: Facebook, label: 'Facebook', href: BRAND.social.facebook },
   { icon: Instagram, label: 'Instagram', href: BRAND.social.instagram },
+  { icon: TikTok, label: 'TikTok', href: BRAND.social.tiktok },
   { icon: MessageCircle, label: 'WhatsApp', href: whatsappEnquiryLink('Hello Rose Destiny, I would like to enquire about your cleaning services.') },
 ];
 
